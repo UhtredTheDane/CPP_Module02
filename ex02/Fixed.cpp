@@ -71,5 +71,96 @@ Fixed	operator>(Fixed const& f1, Fixed const& f2)
 	return (f1 > f2);
 }
 
+Fixed	operator<(Fixed const& f1, Fixed const& f2)
+{	
+	return (f1 < f2);
+}
 
+Fixed	operator>=(Fixed const& f1, Fixed const& f2)
+{	
+	return (f1 >= f2);
+}
 
+Fixed	operator<=(Fixed const& f1, Fixed const& f2)
+{	
+	return (f1 <= f2);
+}
+
+Fixed	operator==(Fixed const& f1, Fixed const& f2)
+{	
+	return (f1 == f2);
+}
+
+Fixed	operator>(Fixed const& f1, Fixed const& f2)
+{	
+	return (!operator==(f1, f2));
+}
+
+Fixed	operator+(Fixed const& f1, Fixed const& f2)
+{	
+	return (f1 + f2);
+}
+
+Fixed	operator-(Fixed const& f1, Fixed const& f2)
+{	
+	return (f1 - f2);
+}
+
+Fixed&	Fixed::operator*=(const Fixed &fixed_number)
+{
+	this.value *= fixed_number.value >> bits_nb;
+	return (*this);
+}
+
+Fixed	operator*(Fixed const& f1, Fixed const& f2)
+{
+	Fixed	res(f1);
+
+	res *= f2;
+	return (res);
+}
+
+Fixed&	Fixed::operator/=(const Fixed &fixed_number)
+{
+	float	temp;
+
+	temp = this.value / fixed_number;
+	this.value = roundf(temp * (1 << bits_nb));
+	return (*this);
+}
+
+Fixed	operator/(Fixed const& f1, Fixed const& f2)
+{
+	Fixed	res(f1);
+
+	res /= f2;
+	return (res);
+}
+
+Fixed&	Fixed::operator++()
+{
+	this.value = this.value + (1 << bits_nb); 
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	temp(*this);
+
+	++*this;
+	return (temp);
+}
+
+Fixed&	Fixed::operator--()
+{
+	this.value = this.value - (1 << bits_nb);
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	temp(*this);
+
+	--*this;
+	return (temp);
+}
