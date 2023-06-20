@@ -66,32 +66,32 @@ std::ostream &operator<<(std::ostream &flux, Fixed const& fixed_number)
 	return (flux);
 }
 
-Fixed	operator>(Fixed const& f1, Fixed const& f2)
+bool	operator>(Fixed const& f1, Fixed const& f2)
 {
-	return (f1 > f2);
+	return (f1.getRawBits() > f2.getRawBits());
 }
 
-Fixed	operator<(Fixed const& f1, Fixed const& f2)
+bool	operator<(Fixed const& f1, Fixed const& f2)
 {	
-	return (f1 < f2);
+	return (f1.getRawBits() < f2.getRawBits());
 }
 
-Fixed	operator>=(Fixed const& f1, Fixed const& f2)
+bool	operator>=(Fixed const& f1, Fixed const& f2)
 {	
-	return (f1 >= f2);
+	return (f1.getRawBits() >= f2.getRawBits());
 }
 
-Fixed	operator<=(Fixed const& f1, Fixed const& f2)
+bool	operator<=(Fixed const& f1, Fixed const& f2)
 {	
-	return (f1 <= f2);
+	return (f1.getRawBits() <= f2.getRawBits());
 }
 
-Fixed	operator==(Fixed const& f1, Fixed const& f2)
+bool	operator==(Fixed const& f1, Fixed const& f2)
 {	
-	return (f1 == f2);
+	return (f1.getRawBits() == f2.getRawBits());
 }
 
-Fixed	operator>(Fixed const& f1, Fixed const& f2)
+bool	operator!=(Fixed const& f1, Fixed const& f2)
 {	
 	return (!operator==(f1, f2));
 }
@@ -108,7 +108,7 @@ Fixed	operator-(Fixed const& f1, Fixed const& f2)
 
 Fixed&	Fixed::operator*=(const Fixed &fixed_number)
 {
-	this.value *= fixed_number.value >> bits_nb;
+	this->value *= fixed_number.value >> bits_nb;
 	return (*this);
 }
 
@@ -124,8 +124,8 @@ Fixed&	Fixed::operator/=(const Fixed &fixed_number)
 {
 	float	temp;
 
-	temp = this.value / fixed_number;
-	this.value = roundf(temp * (1 << bits_nb));
+	temp = this->value / fixed_number.value;
+	this->value = roundf(temp * (1 << bits_nb));
 	return (*this);
 }
 
@@ -139,7 +139,7 @@ Fixed	operator/(Fixed const& f1, Fixed const& f2)
 
 Fixed&	Fixed::operator++()
 {
-	this.value = this.value + (1 << bits_nb); 
+	this->value += 1; 
 	return (*this);
 }
 
@@ -153,7 +153,7 @@ Fixed	Fixed::operator++(int)
 
 Fixed&	Fixed::operator--()
 {
-	this.value = this.value - (1 << bits_nb);
+	this->value -= (1 << bits_nb);
 	return (*this);
 }
 

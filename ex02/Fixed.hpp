@@ -17,12 +17,12 @@ class Fixed
 		void	setRawBits(int const raw);
 		int	toInt(void) const;
 		float	toFloat(void) const;
-		Fixed&	Fixed::operator*=(const Fixed &fixed_number);
-		Fixed&	Fixed::operator/=(const Fixed &fixed_number);
-		Fixed&	Fixed::operator++();
-		Fixed	Fixed::operator++(int);
-		Fixed	Fixed::operator--();
-		Fixed	Fixed::operator--(int);
+		Fixed&	operator*=(const Fixed &fixed_number);
+		Fixed&	operator/=(const Fixed &fixed_number);
+		Fixed&	operator++();
+		Fixed	operator++(int);
+		Fixed&	operator--();
+		Fixed	operator--(int);
 	private:
 		int	value;
 		static int const bits_nb;
@@ -30,12 +30,12 @@ class Fixed
 };
 
 std::ostream &operator<<(std::ostream &flux, Fixed const& fixed_number);
-Fixed	operator>(Fixed const& f1, Fixed const& f2);
-Fixed	operator<(Fixed const& f1, Fixed const& f2);
-Fixed	operator>=(Fixed const& f1, Fixed const& f2);
-Fixed	operator<=(Fixed const& f1, Fixed const& f2);
-Fixed	operator==(Fixed const& f1, Fixed const& f2);
-Fixed	operator>(Fixed const& f1, Fixed const& f2);
+bool	operator>(Fixed const& f1, Fixed const& f2);
+bool	operator<(Fixed const& f1, Fixed const& f2);
+bool	operator>=(Fixed const& f1, Fixed const& f2);
+bool	operator<=(Fixed const& f1, Fixed const& f2);
+bool	operator==(Fixed const& f1, Fixed const& f2);
+bool	operator!=(Fixed const& f1, Fixed const& f2);
 Fixed	operator+(Fixed const& f1, Fixed const& f2);
 Fixed	operator-(Fixed const& f1, Fixed const& f2);
 Fixed	operator*(Fixed const& f1, Fixed const& f2);
