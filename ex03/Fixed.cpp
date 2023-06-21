@@ -96,14 +96,30 @@ bool	operator!=(Fixed const& f1, Fixed const& f2)
 	return (!operator==(f1, f2));
 }
 
+Fixed&	Fixed::operator+=(const Fixed &fixed_number)
+{
+	this->value += fixed_number.value;
+	return (*this);
+}
+
 Fixed	operator+(Fixed const& f1, Fixed const& f2)
 {	
-	return (f1 + f2);
+	Fixed copy(f1);
+	copy += f2;
+	return (copy);
+}
+
+Fixed&	Fixed::operator-=(const Fixed &fixed_number)
+{
+	this->value -= fixed_number.value;
+	return (*this);
 }
 
 Fixed	operator-(Fixed const& f1, Fixed const& f2)
 {	
-	return (f1 - f2);
+	Fixed copy(f1);
+	copy -= f2;
+	return (copy);
 }
 
 Fixed&	Fixed::operator*=(const Fixed &fixed_number)

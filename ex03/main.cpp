@@ -1,23 +1,15 @@
 #include <iostream>
 #include "Fixed.hpp"
+#include "Point.hpp"
+
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 int main( void )
 {
-	Fixed	a;
-	Fixed const b(Fixed(5.05f) * Fixed(2));
-
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	
-	std::cout << b << std::endl;
-	
 	Point a(1.f, 0.f);
-	Point b(3.f, 2.f);
-	Point c(5.f, 0.f);
-	Point point(3.f, 1.f);
+	Point c(3.f, 2.f);
+	Point b(5.f, 0.f);
+	Point point(0.f, 0.f);
 
 	if (bsp(a, b, c, point))
 		std::cout << "Le point est dans le triangle !" << std::endl;

@@ -1,7 +1,7 @@
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD
 NAME = more_useful_classes
-SRC= Fixed.cpp main.cpp
+SRC= Point.cpp Fixed.cpp bsp.cpp main.cpp
 OBJ= $(SRC:.cpp=.o)
 DEP= ${OBJ:.o=.d}
 

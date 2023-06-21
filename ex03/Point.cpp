@@ -5,33 +5,42 @@ Point::Point(void)
 
 }
 
-Point::Point(float const& x, float const& y) : x(x), y(y)
+Point::Point(float const fx, float const fy)
 {
+	Fixed x(fx);
+	Fixed y(fy);
 
+	this->x = x;
+	this->y = y;
 }
 
-Point(Point const& toCopy)
+Point::Point(Point const& toCopy)
 {
     this->x = toCopy.x;
     this->y = toCopy.y;
 }
 
-Point& operator=(Point const& toAffect)
+Point::~Point(void)
 {
-    if (*this != toAffect)
+
+}
+
+Point& Point::operator=(Point const& toAffect)
+{
+    if (this != &toAffect)
     {
-        this->x = toCopy.x;
-        this->y = toCopy.y;
+        this->x = toAffect.x;
+        this->y = toAffect.y;
     }
     return (*this);
 }
 
-Fixed const& Point::getX()
+Fixed Point::getX() const
 {
     return (x);
 }
 
-Fixed const& Point::getY()
+Fixed Point::getY() const
 {
     return (y);
 }
