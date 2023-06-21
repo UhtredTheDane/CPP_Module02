@@ -13,6 +13,8 @@ class Point
 
         Point& operator=(Point const& toAffect);
 
+        Fixed const& getX();
+        Fixed const& getY();
         ~Point(void);
     private:
 

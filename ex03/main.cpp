@@ -13,8 +13,16 @@ int main( void )
 	std::cout << a << std::endl;
 	
 	std::cout << b << std::endl;
+	
+	Point a(1.f, 0.f);
+	Point b(3.f, 2.f);
+	Point c(5.f, 0.f);
+	Point point(3.f, 1.f);
 
-	//std::cout << Fixed::max(a, b) << std::endl;
+	if (bsp(a, b, c, point))
+		std::cout << "Le point est dans le triangle !" << std::endl;
+	else
+		std::cout << "Le point n'est pas dans le triangle !" << std::endl;
 
 	return (0);
 }

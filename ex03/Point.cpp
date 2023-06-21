@@ -25,3 +25,13 @@ Point& operator=(Point const& toAffect)
     }
     return (*this);
 }
+
+Fixed const& Point::getX()
+{
+    return (x);
+}
+
+Fixed const& Point::getY()
+{
+    return (y);
+}
