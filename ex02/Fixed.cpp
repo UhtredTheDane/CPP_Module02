@@ -183,10 +183,28 @@ Fixed	Fixed::operator--(int)
 
 static Fixed&  Fixed::min(Fixed& f1, Fixed& f2)
 {
-
+	if (f1 <= f2)
+		return (f1);
+	return (f2);
 }
 
 static Fixed const& Fixed::min(Fixed const& f1, Fixed const& f2)
 {
-	
+	if (f1 <= f2)
+		return (f1);
+	return (f2);
+}
+
+static Fixed&  Fixed::max(Fixed& f1, Fixed& f2)
+{
+	if (f1 >= f2)
+		return (f1);
+	return (f2);
+}
+
+static Fixed const& Fixed::max(Fixed const& f1, Fixed const& f2)
+{
+	if (f1 >= f2)
+		return (f1);
+	return (f2);
 }
