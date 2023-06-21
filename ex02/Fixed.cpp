@@ -23,7 +23,7 @@ Fixed::Fixed(float const float_value)
 Fixed::Fixed(Fixed const& toCopy)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = toCopy;
+	this->value = toCopy.value;
 }
 
 Fixed& Fixed::operator=(Fixed const& toAffect)
@@ -96,14 +96,30 @@ bool	operator!=(Fixed const& f1, Fixed const& f2)
 	return (!operator==(f1, f2));
 }
 
+Fixed&	Fixed::operator+=(const Fixed &fixed_number)
+{
+	this->value += fixed_number.value;
+	return (*this);
+}
+
 Fixed	operator+(Fixed const& f1, Fixed const& f2)
 {	
-	return (f1 + f2);
+	Fixed copy(f1);
+	copy += f2;
+	return (copy);
+}
+
+Fixed&	Fixed::operator-=(const Fixed &fixed_number)
+{
+	this->value -= fixed_number.value;
+	return (*this);
 }
 
 Fixed	operator-(Fixed const& f1, Fixed const& f2)
 {	
-	return (f1 - f2);
+	Fixed copy(f1);
+	copy -= f2;
+	return (copy);
 }
 
 Fixed&	Fixed::operator*=(const Fixed &fixed_number)
@@ -163,4 +179,14 @@ Fixed	Fixed::operator--(int)
 
 	--*this;
 	return (temp);
+}
+
+static Fixed&  Fixed::min(Fixed& f1, Fixed& f2)
+{
+
+}
+
+static Fixed const& Fixed::min(Fixed const& f1, Fixed const& f2)
+{
+	
 }
