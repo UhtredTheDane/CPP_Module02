@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/27 17:47:19 by agengemb          #+#    #+#             */
+/*   Updated: 2023/06/27 17:47:25 by agengemb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 int const Fixed::bits_nb = 8;
@@ -14,7 +26,7 @@ Fixed::Fixed(int const int_value)
 	value = int_value << bits_nb;
 }
 
-Fixed::Fixed(float const float_value)
+Fixed::Fixed(const float float_value)
 {
 	std::cout << "Float constructor called" << std::endl;
 	value = roundf(float_value * (1 << bits_nb));
@@ -47,6 +59,7 @@ int	Fixed::getRawBits(void) const
 
 void	Fixed::setRawBits(int const raw)
 {
+	std::cout << "setRawBits member function called" << std::endl;
 	value = raw;
 }
 

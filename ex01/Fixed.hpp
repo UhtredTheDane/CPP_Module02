@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/27 17:42:58 by agengemb          #+#    #+#             */
+/*   Updated: 2023/06/27 17:47:39 by agengemb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
@@ -9,7 +21,7 @@ class Fixed
 	public:
 		Fixed(void);
 		Fixed(int const int_value);
-		Fixed(const float float_value);
+		Fixed(float const float_value);
 		Fixed(Fixed const& toCopy);
 		Fixed& operator=(Fixed const& toAffect); 
 		~Fixed(void);
@@ -17,6 +29,7 @@ class Fixed
 		void	setRawBits(int const raw);
 		int	toInt(void) const;
 		float	toFloat(void) const;
+
 	private:
 		int	value;
 		static int const bits_nb;
@@ -24,6 +37,5 @@ class Fixed
 };
 
 std::ostream &operator<<(std::ostream &flux, Fixed const& fixed_number);
-
 
 #endif
