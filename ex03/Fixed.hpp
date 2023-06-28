@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/27 18:36:21 by agengemb          #+#    #+#             */
+/*   Updated: 2023/06/27 18:39:33 by agengemb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
@@ -25,6 +37,11 @@ class Fixed
 		Fixed	operator++(int);
 		Fixed&	operator--();
 		Fixed	operator--(int);
+		static Fixed&  min(Fixed& f1, Fixed& f2);
+		static Fixed const& min(Fixed const& f1, Fixed const& f2);
+		static Fixed&  max(Fixed& f1, Fixed& f2);
+		static Fixed const& max(Fixed const& f1, Fixed const& f2);
+
 	private:
 		int	value;
 		static int const bits_nb;
@@ -42,7 +59,5 @@ Fixed	operator+(Fixed const& f1, Fixed const& f2);
 Fixed	operator-(Fixed const& f1, Fixed const& f2);
 Fixed	operator*(Fixed const& f1, Fixed const& f2);
 Fixed	operator/(Fixed const& f1, Fixed const& f2);
-
-
 
 #endif

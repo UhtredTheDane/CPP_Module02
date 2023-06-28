@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/28 15:48:04 by agengemb          #+#    #+#             */
+/*   Updated: 2023/06/28 16:00:50 by agengemb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef POINT_HPP
 # define POINT_HPP
 
@@ -5,21 +17,20 @@
 
 class Point
 {
-    public:
+	public:
+		Point(void);
+		Point(float const x, float const y);
+		Point(Point const& toCopy);
+		~Point(void);
 
-        Point(void);
-        Point(float const x, float const y);
-        Point(Point const& toCopy);
+		Point& operator=(Point const& toAffect);
 
-        Point& operator=(Point const& toAffect);
+		Fixed getX() const;
+		Fixed getY() const;
 
-        Fixed getX() const;
-        Fixed getY() const;
-        ~Point(void);
-    private:
-
-        Fixed    x;
-        Fixed    y;
+	private:
+		Fixed    x;
+		Fixed    y;
 
 };
 

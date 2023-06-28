@@ -1,6 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: agengemb <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/06/28 15:46:52 by agengemb          #+#    #+#              #
+#    Updated: 2023/06/28 15:47:32 by agengemb         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD
-NAME = more_useful_classes
+NAME = calculate_bsp
 SRC= Point.cpp Fixed.cpp bsp.cpp main.cpp
 OBJ= $(SRC:.cpp=.o)
 DEP= ${OBJ:.o=.d}

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/27 18:36:07 by agengemb          #+#    #+#             */
+/*   Updated: 2023/06/28 15:20:14 by agengemb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 int const Fixed::bits_nb = 8;
@@ -105,6 +117,7 @@ Fixed&	Fixed::operator+=(const Fixed &fixed_number)
 Fixed	operator+(Fixed const& f1, Fixed const& f2)
 {	
 	Fixed copy(f1);
+
 	copy += f2;
 	return (copy);
 }
@@ -122,6 +135,7 @@ Fixed	operator-(Fixed const& f1, Fixed const& f2)
 	return (copy);
 }
 
+//divise par 2^nb_bits	
 Fixed&	Fixed::operator*=(const Fixed &fixed_number)
 {
 	this->value *= fixed_number.value >> bits_nb;
@@ -136,12 +150,23 @@ Fixed	operator*(Fixed const& f1, Fixed const& f2)
 	return (res);
 }
 
+//multiplie par 2^nb_bits
 Fixed&	Fixed::operator/=(const Fixed &fixed_number)
 {
 	float	temp;
+	int denominator_value;
 
-	temp = this->value / fixed_number.value;
-	this->value = roundf(temp * (1 << bits_nb));
+	denominator_value = fixed_number.value;
+	if (denominator_value == 0)
+	{
+		std::cout << "Error, division by zero" << std::endl;
+		this->value = 0;
+	}
+	else
+	{
+		temp = (float)this->value / denominator_value;
+		this->value = roundf(temp * (1 << bits_nb));
+	}
 	return (*this);
 }
 
@@ -179,4 +204,32 @@ Fixed	Fixed::operator--(int)
 
 	--*this;
 	return (temp);
+}
+
+Fixed&  Fixed::min(Fixed& f1, Fixed& f2)
+{
+	if (f1 <= f2)
+		return (f1);
+	return (f2);
+}
+
+Fixed const& Fixed::min(Fixed const& f1, Fixed const& f2)
+{
+	if (f1 <= f2)
+		return (f1);
+	return (f2);
+}
+
+Fixed&  Fixed::max(Fixed& f1, Fixed& f2)
+{
+	if (f1 >= f2)
+		return (f1);
+	return (f2);
+}
+
+Fixed const& Fixed::max(Fixed const& f1, Fixed const& f2)
+{
+	if (f1 >= f2)
+		return (f1);
+	return (f2);
 }
