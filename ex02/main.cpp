@@ -6,7 +6,7 @@
 /*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 18:37:15 by agengemb          #+#    #+#             */
-/*   Updated: 2023/06/27 18:55:49 by agengemb         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:23:37 by agengemb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(void)
 {
 	Fixed	a;
 	Fixed const b(Fixed(5.05f) * Fixed(2));
-	Fixed	c(100);
+	Fixed	c(53.4f);
 
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
@@ -33,6 +33,7 @@ int main(void)
 	std::cout << b.toFloat() << std::endl;
 	std::cout << c.toInt() << std::endl;
 		
-	std::cout << c / b << std::endl;	
+	std::cout << c << " / " << b << " = " << c / b << std::endl;
+	std::cout << a << " * " << b << " = " << a * b << std::endl;
 	return (0);
 }

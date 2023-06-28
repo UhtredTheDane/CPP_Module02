@@ -6,7 +6,7 @@
 /*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 18:36:07 by agengemb          #+#    #+#             */
-/*   Updated: 2023/06/27 18:51:41 by agengemb         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:20:14 by agengemb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,7 +164,7 @@ Fixed&	Fixed::operator/=(const Fixed &fixed_number)
 	}
 	else
 	{
-		temp = this->value / denominator_value;
+		temp = (float)this->value / denominator_value;
 		this->value = roundf(temp * (1 << bits_nb));
 	}
 	return (*this);
