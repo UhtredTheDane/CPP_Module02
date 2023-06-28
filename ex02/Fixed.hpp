@@ -6,7 +6,7 @@
 /*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 18:36:21 by agengemb          #+#    #+#             */
-/*   Updated: 2023/06/27 18:39:33 by agengemb         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:46:32 by agengemb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,5 @@ Fixed	operator+(Fixed const& f1, Fixed const& f2);
 Fixed	operator-(Fixed const& f1, Fixed const& f2);
 Fixed	operator*(Fixed const& f1, Fixed const& f2);
 Fixed	operator/(Fixed const& f1, Fixed const& f2);
-
-
 
 #endif

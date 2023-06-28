@@ -6,7 +6,7 @@
 /*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 18:37:15 by agengemb          #+#    #+#             */
-/*   Updated: 2023/06/28 15:23:37 by agengemb         ###   ########.fr       */
+/*   Updated: 2023/06/28 16:01:35 by agengemb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ int main(void)
 
 	std::cout << Fixed::max(a, b) << std::endl;
 	std::cout << Fixed::min(a, b) << std::endl;
-	
+
 	std::cout << a.toInt() << std::endl;
 	std::cout << b.toFloat() << std::endl;
 	std::cout << c.toInt() << std::endl;
-		
+
 	std::cout << c << " / " << b << " = " << c / b << std::endl;
 	std::cout << a << " * " << b << " = " << a * b << std::endl;
 	return (0);
