@@ -194,7 +194,7 @@ Fixed	Fixed::operator++(int)
 
 Fixed&	Fixed::operator--()
 {
-	this->value -= (1 << bits_nb);
+	this->value -= 1;
 	return (*this);
 }
 
